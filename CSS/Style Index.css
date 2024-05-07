@@ -1,0 +1,32 @@
+
+
+/* Carrusel */
+.visually-hidden{
+    color: black;
+    background-color: black;
+}
+.carousel-control-next-icon , .carousel-control-prev-icon{
+    background-color:black;
+    font-size: 110px;
+}
+.carousel-item{
+    min-height: 600px;
+    min-width: 600px;
+}
+.carousel-image {
+    max-height: 700px;
+    padding: 30px;
+    object-fit: contain; /* Añade esta línea */
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        min-height: 300px;
+        min-width: 300px;
+    }
+    .carousel-image {
+        max-height: 400px;
+        padding: 10px;
+    }
+
+} 
