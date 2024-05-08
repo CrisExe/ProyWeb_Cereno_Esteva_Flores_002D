@@ -66,3 +66,8 @@ body{
 h1{
     color: white;
 }
+textarea{
+    resize: none;
+    width: 80%;
+    height: 3cm;
+}
