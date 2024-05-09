@@ -1,0 +1,73 @@
+body{
+    color: white;
+    height: auto;
+    width: 100%;
+}
+#contenedor-contactanos{
+    /* aqui hago que les doy las propiedades 
+    al padre para poder centrar al hijo al medio*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+#contactanos-formulario{
+    /* /* aqui le doy las propiedades al hijo  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(55, 223, 223,0.3);
+    height: 50%;
+    width: 50%;
+    align-content: center;
+    position: relative;
+}
+#contactanos-formulario input{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: rgb(254, 255, 255);
+}
+#contactanos-formulario textarea{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: rgb(255, 255, 255);
+}
+#contactanos-formulario button{
+    border-radius: 10px;
+
+}
+#contactanos-formulario button:hover{
+    background-color: white;
+    color: black;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+#contactanos-formulario button:active{
+    background-color: black;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+#contactanos-formulario label{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+h1{
+    color: white;
+}
+textarea{
+    resize: none;
+    width: 80%;
+    height: 3cm;
+}
