@@ -19,6 +19,21 @@
     object-fit: contain; /* Añade esta línea */
 }
 
+#cuenta{
+    margin: auto;
+    background-color: rgb(126, 178, 228);
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    justify-content: space-around;
+    width: 40%;
+    font-weight: 500;
+    font-size: 50px;
+}
+
 @media (max-width: 768px) {
     .carousel-item {
         min-height: 300px;
@@ -27,6 +42,11 @@
     .carousel-image {
         max-height: 400px;
         padding: 10px;
+    }
+
+    #cuenta{
+        width: 80%;
+        font-size: 30px;
     }
 
 } 
