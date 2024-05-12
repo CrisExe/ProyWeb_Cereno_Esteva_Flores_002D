@@ -23,8 +23,6 @@ function OcultarFormulario(){
 
 function MostrarCaja(e){
     //e.preventDefault();
-
-    
     var id = e.currentTarget.id;  // Obtiene el id de la caja que se ha clickeado, la id la tiene el evento es deir e
     var detalle;
 
@@ -117,5 +115,4 @@ fullstars.forEach((fullstar, index) => { // Agrega un event listener a cada estr
         }
     });
 });
-
 
