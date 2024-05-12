@@ -13,18 +13,29 @@ const getRemainTime = deadline => {//Función que recibe la fecha límite
     remainHours,
     remainDays
   }
-};
-
-const countdown = (deadline, elem, finalMessage) => {//Función que recibe la fecha límite, el elemento donde se mostrará el contador y el mensaje final
-    const el = document.getElementById(elem);//Se obtiene el elemento donde se mostrará el contador
-    const timerUpdate = setInterval( () => {//Se crea un intervalo que se ejecutará cada segundo
-      let t = getRemainTime(deadline);//Se obtiene el tiempo restante
-      el.innerHTML = `${t.remainDays}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;//Se muestra el tiempo restante en el elemento
-      if(t.remainTime <= 1) {//Si el tiempo restante es menor o igual a 1
-        clearInterval(timerUpdate);//Se detiene el intervalo
-        el.innerHTML = finalMessage;//Se muestra el mensaje final
-      }
-    }, 1000)
 }
 
-countdown('May 14 2024 00:00:00 GMT-0400', 'cuenta', '');//Se llama a la función countdown con la fecha límite, el elemento donde se mostrará el contador y el mensaje final
+const countdown = (deadline) => {//Función que recibe la fecha límite, el elemento donde se mostrará el contador y el mensaje final
+    const elDays = document.getElementById('dias');
+    const elHours = document.getElementById('horas');
+    const elMinutes = document.getElementById('minutos');
+    const elSeconds = document.getElementById('segundos');
+    let timerUpdate;//Variable para almacenar el intervalo
+    const updateCountdown = () => {//Función que actualiza el contador
+        let t = getRemainTime(deadline);//Se obtiene el tiempo restante
+        elDays.innerHTML = ` ${t.remainDays}`;//Se muestra el tiempo restante en el elemento
+        elHours.innerHTML = ` ${t.remainHours}`;
+        elMinutes.innerHTML = ` ${t.remainMinutes}`;
+        elSeconds.innerHTML = ` ${t.remainSeconds}`;
+      if(t.remainTime <= 0) {//Si el tiempo restante es menor o igual a 0
+        clearInterval(timerUpdate);//Se detiene el intervalo
+        let sorteoDiv = document.getElementById('oferta');//Se obtiene el elemento donde se mostrará el sorteo
+        sorteoDiv.style.display = 'none';//Se oculta el sorteo
+      }
+    }
+    updateCountdown(); // Llama a la función de actualización una vez antes de iniciar el intervalo
+
+    timerUpdate = setInterval(updateCountdown, 1000);
+}
+
+countdown('May 12 2024 00:00:00 GMT-0400');//Se llama a la función countdown con la fecha límite, el elemento donde se mostrará el contador y el mensaje final
