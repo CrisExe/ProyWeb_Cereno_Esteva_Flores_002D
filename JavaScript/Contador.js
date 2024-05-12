@@ -38,4 +38,4 @@ const countdown = (deadline) => {//Función que recibe la fecha límite, el elem
     timerUpdate = setInterval(updateCountdown, 1000);
 }
 
-countdown('May 12 2024 00:00:00 GMT-0400');//Se llama a la función countdown con la fecha límite, el elemento donde se mostrará el contador y el mensaje final
+countdown('May 17 2024 00:00:00 GMT-0400');//Se llama a la función countdown con la fecha límite, el elemento donde se mostrará el contador y el mensaje final
