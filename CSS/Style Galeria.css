@@ -115,7 +115,7 @@ cajas{
 }
 
 
-.fondo-formulario{
+#fondo-formulario{
     /*display: none; Ocultamos el formulario, con js cmabiarlo a flex*/
     
     display: none;
@@ -132,7 +132,7 @@ cajas{
     
 }
 
-.formulario{
+#formulario{
     /*display: none; Ocultamos el formulario, con js cmabiarlo a block*/
     /*display: block;     js propiedad*/
     display: none;      
@@ -146,4 +146,37 @@ cajas{
     
     
     width: 85%;
+}
+
+.bi-x-circle{
+    position: fixed;
+    left: 3%;
+    top: 8%;
+    color: rgb(255, 255, 255);
+    font-size: 0.8cm;
+    cursor: pointer;
+}
+
+
+.bi-x-circle:hover{
+    
+    color: rgb(121, 236, 236,0.6);
+    
+}
+
+.bi-star{
+    color: rgb(204, 224, 16);
+    font-size: 0.8cm;
+    cursor: pointer;
+}
+
+.bi-star-fill{
+    color: gold;
+    font-size: 0.8cm;
+    display: none;
+    cursor: pointer;
+}
+
+textarea{
+    resize: none;  
 }
