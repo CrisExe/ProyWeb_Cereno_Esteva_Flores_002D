@@ -112,13 +112,49 @@
         </div>
     </cajas>
     <div class="boton-fixed"> <!--Boton de formulario de producto-->
-        <button type="button" id="boton-abrir-form">Lo compraste?</button>         
+        <button type="button" id="boton-abrir-form" onclick="MostrarFormulario(event);">Lo compraste?</button>         
     </div>         
-    <div class="fondo-formulario"><!--Formulario-->
-        <div class="formulario">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto minus ab aspernatur. Libero, dolore. Odit eveniet corrupti cupiditate pariatur nam corporis, omnis, inventore, alias et non consequatur incidunt? Dignissimos, mollitia!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius rem quidem eligendi provident et quasi, illum iure eveniet fugiat voluptates maxime molestiae aliquam enim accusantium commodi exercitationem unde quibusdam asperiores?</p>
-            <!--Formulario pedir nombre, selec producto, valoraicon y poruqe producto -->
+    <div id="fondo-formulario"><!--Formulario-->
+        <i class="bi bi-x-circle" onclick="OcultarFormulario();"></i>
+        <div id="formulario">
+            <form>
+                <div class="form-group">
+                    <label for="validationCustom01">Nombre:</label>
+                    <input type="text" class="form-control"  id="validationCustom01" minlength="3" maxlength="20" placeholder="Ingrese su nombre" required>
+                </div>
+                <br>
+                <div >
+                    <label for="opciones">Opciones:</label>
+                    <select class="form-control" id="opciones">
+                        <option value="opcion1">Opción 1</option>
+                        <option value="opcion2">Opción 2</option>
+                        <option value="opcion3">Opción 3</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="valoracion">Valoración:</label>
+                    <div id="valoracion">
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="opinion">Opinión:</label>
+                    <textarea class="form-control" id="opinion" rows="3" minlength="5" maxlength="250" placeholder="Ingrese su opinión" required></textarea>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
         </div>
     </div> 
 

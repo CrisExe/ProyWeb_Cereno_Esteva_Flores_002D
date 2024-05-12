@@ -19,6 +19,72 @@
     object-fit: contain; /* Añade esta línea */
 }
 
+#sorteo{
+    margin: auto;
+    background-color: rgb(126, 178, 228);
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    justify-content: space-around;
+    width: 40%;
+}
+
+#reloj{
+    display: flex;
+    flex-direction: row;
+}
+
+#reloj > p{
+    margin: auto;
+    justify-content: space-around;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#dias, #horas, #minutos, #segundos{
+    margin: auto;
+    justify-content: space-around;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#sorteo-texto{
+    display: inline-block;
+    justify-content: space-between;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+@media (max-width: 1200px) {
+    .carousel-item {
+        min-height: 500px;
+        min-width: 500px;
+    }
+    .carousel-image {
+        max-height: 600px;
+        padding: 20px;
+    }
+
+    #sorteo{
+        width: 60%;
+    }
+
+    #sorteo-texto{
+        font-size: 18px;
+    }
+
+    #reloj > p{
+        font-size: 25px;
+    }
+
+    #dias, #horas, #minutos, #segundos{
+        font-size: 25px;
+    }
+
+}
 @media (max-width: 768px) {
     .carousel-item {
         min-height: 300px;
@@ -27,6 +93,22 @@
     .carousel-image {
         max-height: 400px;
         padding: 10px;
+    }
+
+    #sorteo{
+        width: 80%;
+    }
+
+    #sorteo-texto{
+        font-size: 15px;
+    }
+
+    #reloj > p{
+        font-size: 20px;
+    }
+
+    #dias, #horas, #minutos, #segundos{
+        font-size: 20px;
     }
 
 } 
