@@ -44,10 +44,10 @@ async function MostrarComuna() {  //funcion que muestra los productos solo si ha
     try{
         if (ComprobarSelect()==true){
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlComuna=``;
+            htmlComuna=`<option value="" selected="" disabled="">Escoja su Comuna</option>`;
             
             console.log(document.getElementById("Region").value);
-            
+            console.log(ArrayRegion);
 
             let regionString=document.getElementById("Region").value;
             console.log(regionString);
@@ -55,24 +55,24 @@ async function MostrarComuna() {  //funcion que muestra los productos solo si ha
             const regionIndex=ArrayRegion.indexOf(regionString);
             
             for (let j = 0; j < basedatos.regiones[regionIndex].comunas.length; j++) {
-                htmlComuna=htmlComuna+`<option value="${j}">${basedatos.regiones[regionIndex].comunas[j]}</option>`;
+                htmlComuna=htmlComuna+`<option value="${basedatos.regiones[regionIndex].comunas[j]}">${basedatos.regiones[regionIndex].comunas[j]}</option>`;
 
             }
             document.getElementById("Comuna").innerHTML=htmlComuna;
         }
     } catch (basedatos){}; //si hay un error en la lectura del archivo, se mostrara un mensaje de error de la funcion leerArchivo
 }
-async function MostrarRegion(regiones) {  //funcion que muestra las categorias, solo si no hay una categoria seleccionada
+async function MostrarRegion() {  //funcion que muestra las categorias, solo si no hay una categoria seleccionada
     try{
         if (ComprobarSelect()==false){
             
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlRegion=``;
-            
-
+            htmlRegion=`<option value="" selected="" disabled="">Escoja su region</option>`;
+            htmlComuna=`<option value="" selected="" disabled="">Escoja su Comuna</option>`;
+            document.getElementById("Comuna").innerHTML=htmlComuna;
             for (let i = 0; i < basedatos.regiones.length; i++) {
-                htmlRegion=htmlRegion+`<option value="${basedatos.regiones[i].region}" class=Regiones>${basedatos.regiones[i].region}</option>`;
-                regiones.push(basedatos.regiones[i].region);
+                htmlRegion=htmlRegion+`<option value="${basedatos.regiones[i].region}">${basedatos.regiones[i].region}</option>`;
+                ArrayRegion.push(basedatos.regiones[i].region);
             }
             document.getElementById("Region").innerHTML=htmlRegion;
             MostrarComuna(ArrayRegion);
@@ -81,14 +81,12 @@ async function MostrarRegion(regiones) {  //funcion que muestra las categorias, 
     catch (basedatos){}
 };
 
-let regiones;
-
-
-
-
+let regiones = document.getElementById('Region'); //selecciona el elemento con id categoria <select>
 console.log(document.getElementById('Region')); //debug
-regiones.addEventListener('change', MostrarComuna()); //agrega un event listener al elemento de id categoria que al cambiar ejecuta la funcion MostrarProducto <select>
-MostrarRegion(); //llama a la funcion MostrarCategoria
+regiones.addEventListener('change', MostrarComuna); //agrega un event listener al elemento de id categoria que al cambiar ejecuta la funcion MostrarProducto <select>
 
+let ArrayRegion=[];
+
+MostrarRegion();
 
 //#selection Al llamar la funcion MostrarRegion no tiene porblemas de conseguir el valor del elemento llamado, que es 0, pero depsues de cambiar el seleccionable, 
