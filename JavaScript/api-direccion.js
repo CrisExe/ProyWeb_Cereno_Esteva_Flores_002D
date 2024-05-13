@@ -1,0 +1,94 @@
+
+//------------------------------------------------------------------------------------------------------------------------------
+async function leerArchivo() { //funcion que lee el archivo productos.json y devuelve un mensaje
+    //leer un archivo JSON en el navegador, puedes hacerlo utilizando la API Fetch
+    
+    const url = "https://gist.githubusercontent.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json";
+    const obtener = 'get'; // hacemos un metodo para solicitar cosas
+    // llamas a api lista de regiones
+    
+    
+    const respuesta_api = await fetch(url, { //  solicitamos el estado de la respuesta, y se espera a obtener antes de seguir con el code
+        method: obtener,
+    })
+    try{
+        if (respuesta_api.status!=200){
+            console.log(respuesta_api); //debug
+            throw new Error("HTTP error " + respuesta_api.status);
+        }
+        console.log(`Respuesta: ${respuesta_api.status}`) //debug
+        return respuesta_api.json(); 
+    }
+    catch(respuesta_api) {   //si hay un error en la lectura del archivo al principio, devolvera un mensaje de error y no se caera el programa
+        console.log("Error al leer el archivo JSON.");
+    };
+
+}
+    
+    
+
+
+function ComprobarSelect(){    //comprueba que categoria esta seleccionada, y si está la opcion cargada de la funcion mostrarProducto
+    let region_select=document.getElementById("Region").value;
+    if (region_select=="" || region_select==null || region_select==undefined){
+        console.log("Region no seleccionada");
+        return false;
+    }else{
+        console.log("Validacion correcta");
+        return true;
+    }
+}
+
+
+async function MostrarComuna() {  //funcion que muestra los productos solo si hay una categoria seleccionada
+    try{
+        if (ComprobarSelect()==true){
+            const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
+            htmlComuna=``;
+            
+            console.log(document.getElementById("Region").value);
+            
+
+            let regionString=document.getElementById("Region").value;
+            console.log(regionString);
+            console.log(ArrayRegion.indexOf(regionString));
+            const regionIndex=ArrayRegion.indexOf(regionString);
+            
+            for (let j = 0; j < basedatos.regiones[regionIndex].comunas.length; j++) {
+                htmlComuna=htmlComuna+`<option value="${j}">${basedatos.regiones[regionIndex].comunas[j]}</option>`;
+
+            }
+            document.getElementById("Comuna").innerHTML=htmlComuna;
+        }
+    } catch (basedatos){}; //si hay un error en la lectura del archivo, se mostrara un mensaje de error de la funcion leerArchivo
+}
+async function MostrarRegion(regiones) {  //funcion que muestra las categorias, solo si no hay una categoria seleccionada
+    try{
+        if (ComprobarSelect()==false){
+            
+            const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
+            htmlRegion=``;
+            
+
+            for (let i = 0; i < basedatos.regiones.length; i++) {
+                htmlRegion=htmlRegion+`<option value="${basedatos.regiones[i].region}" class=Regiones>${basedatos.regiones[i].region}</option>`;
+                regiones.push(basedatos.regiones[i].region);
+            }
+            document.getElementById("Region").innerHTML=htmlRegion;
+            MostrarComuna(ArrayRegion);
+        }
+    }
+    catch (basedatos){}
+};
+
+let regiones;
+
+
+
+
+console.log(document.getElementById('Region')); //debug
+regiones.addEventListener('change', MostrarComuna()); //agrega un event listener al elemento de id categoria que al cambiar ejecuta la funcion MostrarProducto <select>
+MostrarRegion(); //llama a la funcion MostrarCategoria
+
+
+//#selection Al llamar la funcion MostrarRegion no tiene porblemas de conseguir el valor del elemento llamado, que es 0, pero depsues de cambiar el seleccionable, 

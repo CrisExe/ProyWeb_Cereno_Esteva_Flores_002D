@@ -36,7 +36,7 @@
                 }else if(mensaje == ""){
                     alert("El campo mensaje esta vacio");
                     event.preventDefault(); // Evita que el formulario se envíe
-                }if(!$("input[name='option']").is(':checked')){ // Verifica si no hay ningún radio button seleccionado
+                }if(!$("input[name='Opcion']").is(':checked')){ // Verifica si no hay ningún radio button seleccionado
                 alert("Por favor, selecciona un tipo de producto");
                 event.preventDefault(); // Evita que el formulario se envíe
                 }
@@ -87,23 +87,38 @@
         <form  id="contactanos-formulario">
             <h1 id="h1">Contáctanos</h1>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="Nombre" required>
             <br>
             <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="phone" required>
+            <input type="text" id="telefono" name="Telefono" required>
             <br>
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required>
+            <input type="email" id="correo" name="Correo" required>
+            <br>
+            <div >
+                <label for="opciones">Regiones:</label>
+                <select class="form-control" id="Region">
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="opciones">Comunas:</label>
+                <select class="form-control" id="Comuna">
+                    
+                    
+
+                </select>
+            </div>
             <br>
             <label for="radio">Tipo de Producto</label>
             <br>
             <label for="radio-juguete">Juguete</label>
-            <input type="radio" name="option" id="radio-juguete">
+            <input type="radio" name="Opcion" id="radio-juguete" value="Juguete">
             <label for="radio-ropa">Ropa</label>
-            <input type="radio" name="option" id="radio-juguete">
+            <input type="radio" name="Opcion" id="radio-juguete" value="Ropa">
             <label for="mensaje">Mensaje:</label>
             <br>
-            <textarea id="mensaje" name="mensaje" required></textarea>
+            <textarea id="mensaje" name="Mensaje" required></textarea>
             <br>
             <input type="submit" value="Enviar" id="button">
 
@@ -131,8 +146,9 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../JavaScript/Validacion.js"></script>
-    <script src="../JavaScript/"></script>
+    <script src="../JavaScript/api-direccion.js"></script>
+    
+
 
 </body>
 </html>
