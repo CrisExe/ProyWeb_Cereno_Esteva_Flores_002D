@@ -84,7 +84,7 @@
         </div>
     </nav>
     <div id="contenedor-contactanos">
-        <form  id="contactanos-formulario" action="https://formspree.io/f/xjvnzrka"method="POST">
+        <form  id="contactanos-formulario">
             <h1 id="h1">Contáctanos</h1>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="Nombre" required>
@@ -95,10 +95,21 @@
             <label for="correo">Correo:</label>
             <input type="email" id="correo" name="Correo" required>
             <br>
-            <div id="regiones">
+            <div >
+                <label for="opciones">Regiones:</label>
+                <select class="form-control" id="Region">
+                </select>
             </div>
-            <div id="comunas">
+            <br>
+            <div>
+                <label for="opciones">Comunas:</label>
+                <select class="form-control" id="Comuna">
+                    
+                    
+
+                </select>
             </div>
+            <br>
             <label for="radio">Tipo de Producto</label>
             <br>
             <label for="radio-juguete">Juguete</label>
@@ -135,8 +146,9 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../JavaScript/Validacion.js"></script>
-    <script src="../JavaScript/"></script>
     <script src="../JavaScript/api-direccion.js"></script>
+    
+
+
 </body>
 </html>
