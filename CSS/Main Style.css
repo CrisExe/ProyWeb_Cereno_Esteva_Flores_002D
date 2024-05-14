@@ -1,13 +1,14 @@
 /* body*/
 
 body{
-    background-color: rgb(199, 216, 231);
+    background: linear-gradient(#ffffff, #9fd3da, #ffffff);
 }
 
 /*el .es para las class y el #ID*/
 /* Esta parte es todo lo que es el header , icono y color  */
 .cabezera{
     background-color: rgb(121, 236, 236,0.6);
+    
     height: 50px;
     width: 100%;
     align-items: center;
@@ -36,6 +37,7 @@ body{
 /* esta parte le da el color y alinia las cosas del nav*/
 .navbar{
     background-color: rgb(126, 178, 228);
+    
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -58,6 +60,11 @@ body{
     border-radius: 10px;
     
 }
+#icono1{
+    width:120px; 
+    position: absolute;
+    left:50px;
+}
 @media (max-width: 992px) {
     .nav-item:hover{
       background-color: rgba(239, 245, 245, 0.932);
@@ -75,6 +82,7 @@ body{
 }
 
 /* Footer */
+
 .contenedor-footer{
     background-color: rgb(126, 178, 228);
     display: flex;
@@ -83,8 +91,11 @@ body{
     flex-wrap: wrap;
     width: 100%;
     position: absolute;
-    margin-top: 40px;
-
+    
+}
+#margen{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 
@@ -120,7 +131,9 @@ body{
 #parrafos{
     margin: auto;
     background-color: rgb(126, 178, 228);
-    border-color: rgb(255, 255, 255);
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-color: rgb(255, 255, 255,0.10);
     border-style: solid;
     border-width: 5px;
     border-radius: 10px;
