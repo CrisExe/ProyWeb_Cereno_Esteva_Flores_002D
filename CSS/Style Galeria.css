@@ -180,3 +180,11 @@ cajas{
 textarea{
     resize: none;  
 }
+
+
+#opinion{
+    margin-bottom: 15px;
+}
+#Mensaje{
+    margin-bottom: 15px;
+}

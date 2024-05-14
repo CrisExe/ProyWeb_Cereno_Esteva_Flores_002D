@@ -108,7 +108,7 @@
         </div>
     </cajas>
     <div class="boton-fixed"> <!--Boton de formulario de producto-->
-        <button type="button" class="btn btn-primary btn-lg" onclick="MostrarFormulario(event);">Lo compraste?</button>       
+        <button type="button" class="btn btn-primary btn-lg" onclick="MostrarFormulario();">Lo compraste?</button>       
     </div>         
     <div id="fondo-formulario"><!--Formulario-->
         <i class="bi bi-x-circle" onclick="OcultarFormulario();"></i>
@@ -116,7 +116,7 @@
             <form>
                 <div class="form-group">
                     <label for="validationCustom01">Nombre:</label>
-                    <input type="text" class="form-control"  id="validationCustom01" minlength="3" maxlength="20" placeholder="Ingrese su nombre" required>
+                    <input type="text" class="form-control" id="nombre"  minlength="3" maxlength="20" placeholder="Ingrese su nombre">
                 </div>
                 <br>
                 <div >
@@ -128,13 +128,8 @@
                 <div>
                     <label for="opciones">Producto:</label>
                     <select class="form-control" id="producto">
-                        
-                        
-
                     </select>
                 </div>
-
-
                 <br>
                 <div class="form-group">
                     <label for="valoracion">Valoración:</label>
@@ -154,10 +149,10 @@
                 <br>
                 <div class="form-group">
                     <label for="opinion">Opinión:</label>
-                    <textarea class="form-control" id="opinion" rows="3" minlength="5" maxlength="350" placeholder="Ingrese su opinión" required></textarea>
+                    <textarea class="form-control" id="opinion" rows="3" minlength="5" maxlength="350" placeholder="Ingrese su opinión"></textarea>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <div id="Mensaje"></div>
+                <button type="submit" class="btn btn-primary" onclick="guardarFormulario(event);">Enviar</button>
             </form>
         </div>
     </div> 

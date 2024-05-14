@@ -12,14 +12,13 @@ async function leerArchivo() { //funcion que lee el archivo productos.json y dev
         method: obtener,
     })
     try{
-        if (respuesta_api.status!=200){
-            console.log(respuesta_api); //debug
-            throw new Error("HTTP error " + respuesta_api.status);
+        if (respuesta_api.status!=200){   //si la respuesta no es 200, es decir, la api indico que no se pudo obtener el archivo, se mostrara un mensaje de error dsp
+            throw new Error("HTTP error " + respuesta_api.status); //Muestra el porque no se pudo obtener el archivo por parte de la api
         }
         console.log(`Respuesta: ${respuesta_api.status}`) //debug
-        return respuesta_api.json(); 
+        return respuesta_api.json(); //si no hay porblemas, se devuelve el archivo en formato JSON
     }
-    catch(respuesta_api) {   //si hay un error en la lectura del archivo al principio, devolvera un mensaje de error y no se caera el programa
+    catch(respuesta_api) {  //si hay un error en la lectura del archivo por un link caido o etc, y da un error de codigo en la throw o api.json se mostrara un mensaje de error
         console.log("Error al leer el archivo JSON.");
     };
 
