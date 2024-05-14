@@ -1,4 +1,4 @@
-async function Galeria_Productos() { //una funcion asincrona
+//async function Galeria_Productos() { //una funcion asincrona
 
 /*
 Las funciones async en JavaScript son utilizadas para trabajar con operaciones asíncronas,
@@ -12,9 +12,13 @@ El uso de async y await hace que el código asíncrono sea más fácil de leer y
 await sólo puede ser usado dentro de una función async y hace que la ejecución de la función se pause hasta que la 
 promesa se resuelva.
 */
-}
+//}
 
-//------------------------------------------------------------------------------------------------------------------------------
+
+
+//Leer archivo en servidor local
+
+/*
 async function leerArchivo() { //funcion que lee el archivo productos.json y devuelve un mensaje
     //leer un archivo JSON en el navegador, puedes hacerlo utilizando la API Fetch
     
@@ -32,6 +36,33 @@ async function leerArchivo() { //funcion que lee el archivo productos.json y dev
             console.log("Error al leer el archivo JSON.");
         });
 
+
+}
+*/
+
+
+async function leerArchivo() { //funcion que lee el archivo productos.json y devuelve un mensaje
+    //leer un archivo JSON en el navegador, puedes hacerlo utilizando la API Fetch
+    
+    const url = "https://gist.githubusercontent.com/Nechaiter/f9282b10217392ebccc5dc95cf798714/raw/8ecdafb5566e0041ce982427003cac245c0c7a84/Productos.json";
+    const obtener = 'get'; // hacemos un metodo para solicitar cosas
+    // llamas a api lista de regiones
+    
+    
+    const respuesta_api = await fetch(url, { //  solicitamos el estado de la respuesta, y se espera a obtener antes de seguir con el code
+        method: obtener,
+    })
+    try{
+        if (respuesta_api.status!=200){
+            console.log(respuesta_api); //debug
+            throw new Error("HTTP error " + respuesta_api.status);
+        }
+        console.log(`Respuesta: ${respuesta_api.status}`) //debug
+        return respuesta_api.json(); 
+    }
+    catch(respuesta_api) {   //si hay un error en la lectura del archivo al principio, devolvera un mensaje de error y no se caera el programa
+        console.log("Error al leer el archivo JSON.");
+    };
 
 }
 
@@ -54,7 +85,7 @@ async function MostrarProducto() {  //funcion que muestra los productos solo si 
     try{
         if (ComprobarSelect()==true){
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlProducto=``;
+            htmlProducto=`<option value="" selected="" disabled="">Escoja su Producto</option>`;
             i=document.getElementById("categoria").value;
             for (let j = 0; j < basedatos.Productos[i].Tipo.length; j++) {
                 htmlProducto=htmlProducto+`<option value="${j}">${basedatos.Productos[i].Tipo[j]}</option>`;
@@ -70,7 +101,8 @@ async function MostrarCategoria() {  //funcion que muestra las categorias, solo 
     try{
         if (ComprobarSelect()==false){
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlCategoria=``;
+            htmlCategoria=`<option value="" selected="" disabled="">Escoja la categoria</option>`;
+            document.getElementById("producto").innerHTML=`<option value="" selected="" disabled="">Escoja su Producto</option>`
             console.log(basedatos.Productos.length); //debug
             for (let i = 0; i < basedatos.Productos.length; i++) {
                 htmlCategoria=htmlCategoria+`<option value="${i}">${basedatos.Productos[i].Categoria}</option>`;
