@@ -42,7 +42,7 @@
                     alert("Por favor, selecciona un tipo de producto");
                     event.preventDefault(); // Evita que el formulario se envíe
                 }
-                else if (opcion  == '' && opcion2 == ''){
+                else if (opcion  == '' || opcion2 == ''){
                     alert("Por favor, selecciona una región y comuna");
                     event.preventDefault(); // Evita que el formulario se envíe
                 }
@@ -59,7 +59,7 @@
 </head>
 <body>
     <header class="cabezera">
-        <a href="#" class="pinpon"><img src="../Imagenes/icono.jpeg" alt="icono pagina" class="icono">PINPONCITOS</a>
+        <a href="../index.html" class="pinpon"><img src="../Imagenes/icono.jpeg" alt="icono pagina" class="icono">PINPONCITOS</a>
     </header>
     <nav class=" navbar navbar-expand-lg navbar-light  ">  
         <div class="container-nav">
@@ -90,21 +90,21 @@
         <form  id="contactanos-formulario">
             <h1 id="h1">Contáctanos</h1>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="Nombre" required>
+            <input type="text" id="nombre" name="Nombre" minlength="3" maxlength="30" required>
             <br>
             <label for="telefono">Teléfono:</label>
             <input type="text" id="telefono" name="Telefono" required>
             <br>
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="Correo" required>
+            <input type="email" id="correo" name="Correo" maxlength="40" required>
             <br>
-            <div >
+            <div id="div-regiones">
                 <label for="opciones">Regiones:</label>
                 <select class="form-control" id="Region">
                 </select>
             </div>
             <br>
-            <div>
+            <div id="div-comuna">
                 <label for="opciones">Comunas:</label>
                 <select class="form-control" id="Comuna">
                     
@@ -115,13 +115,20 @@
             <br>
             <label for="radio">Tipo de Producto</label>
             <br>
+            <div id="div-radio">
+                <div id="juguetes-radio">
             <label for="radio-juguete">Juguete</label>
             <input type="radio" name="Opcion" id="radio-juguete" value="Juguete">
+                </div>
+            <div id="ropa-radio">
             <label for="radio-ropa">Ropa</label>
-            <input type="radio" name="Opcion" id="radio-juguete" value="Ropa">
+            <input type="radio" name="Opcion" id="radio-ropa" value="Ropa">
+            </div>
+            </div>
             <label for="mensaje">Mensaje:</label>
+            
             <br>
-            <textarea id="mensaje" name="Mensaje" required></textarea>
+            <textarea id="mensaje" name="Mensaje"  minlength="5" maxlength="150" required></textarea>
             <br>
             <input type="submit" value="Enviar" id="button">
 

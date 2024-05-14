@@ -67,7 +67,7 @@ async function MostrarRegion() {  //funcion que muestra las categorias, solo si 
         if (ComprobarSelect()==false){
             
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlRegion=`<option id="region" value="" selected="" disabled="">Escoja su region</option>`;
+            htmlRegion=`<option id="region" value="" selected="" disabled="">Escoja su Region</option>`;
             htmlComuna=`<option id="comuna" value="" selected="" disabled="">Escoja su Comuna</option>`;
             document.getElementById("Comuna").innerHTML=htmlComuna;
             for (let i = 0; i < basedatos.regiones.length; i++) {

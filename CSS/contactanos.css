@@ -1,5 +1,4 @@
 body{
-    color: white;
     height: auto;
     width: 100%;
 }
@@ -16,18 +15,19 @@ body{
 }
 #contactanos-formulario{
     /* /* aqui le doy las propiedades al hijo  */
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 20px;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px rgb(140, 187, 196);
+    padding: 40px;
     margin: 20px;
-    background-color: rgb(55, 223, 223,0.3);
+    background-color: rgb(126, 178, 228);
     height: 50%;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 #contactanos-formulario input{
     margin: 10px;
@@ -60,6 +60,8 @@ body{
     color: rgb(0, 0, 0);
     font-size: 20px;
     text-align: center;
+    margin: 10px;
+    
 }
 h1{
     color: white;
@@ -68,4 +70,67 @@ textarea{
     resize: none;
     width: 80%;
     height: 3cm;
+}
+#div-regiones,#div-comuna{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+#div-radio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+#juguetes-radio ,#ropa-radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    align-content: center;
+}
+@media screen and (max-width: 768px){
+    #contactanos-formulario{
+        width: 80%;
+    }
+    #contactanos-formulario input{
+        width: 100%;
+    }
+    #contactanos-formulario textarea{
+        width: 100%;
+    }
+    #contactanos-formulario #button{
+        width: 50%;
+    }
+    #div-regiones,#div-comuna{
+        width: 100%;
+    }
+    #div-radio{
+        width: 100%;
+    }
+}
+@media(max-width: 1200px)
+{
+    #contactanos-formulario{
+        width: 80%;
+    }
+    #contactanos-formulario input{
+        width: 100%;
+    }
+    #contactanos-formulario textarea{
+        width: 100%;
+    }
+    #contactanos-formulario #button{
+        width: 50%;
+    }
+    #div-regiones,#div-comuna{
+        width: 100%;
+    }
+    #div-radio{
+        width: 100%;
+    }
 }
