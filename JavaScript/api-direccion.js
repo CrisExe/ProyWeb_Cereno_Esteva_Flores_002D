@@ -44,7 +44,7 @@ async function MostrarComuna() {  //funcion que muestra los productos solo si ha
     try{
         if (ComprobarSelect()==true){
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlComuna=`<option value="" selected="" disabled="">Escoja su Comuna</option>`;
+            htmlComuna=`<option id="comuna" value="" selected="" disabled="">Escoja su Comuna</option>`;
             
             console.log(document.getElementById("Region").value);
             console.log(ArrayRegion);
@@ -67,8 +67,8 @@ async function MostrarRegion() {  //funcion que muestra las categorias, solo si 
         if (ComprobarSelect()==false){
             
             const basedatos = await leerArchivo() //espera a que la funcion leerArchivo termine y guarde el archivo en la variable basedatos
-            htmlRegion=`<option value="" selected="" disabled="">Escoja su region</option>`;
-            htmlComuna=`<option value="" selected="" disabled="">Escoja su Comuna</option>`;
+            htmlRegion=`<option id="region" value="" selected="" disabled="">Escoja su region</option>`;
+            htmlComuna=`<option id="comuna" value="" selected="" disabled="">Escoja su Comuna</option>`;
             document.getElementById("Comuna").innerHTML=htmlComuna;
             for (let i = 0; i < basedatos.regiones.length; i++) {
                 htmlRegion=htmlRegion+`<option value="${basedatos.regiones[i].region}">${basedatos.regiones[i].region}</option>`;
