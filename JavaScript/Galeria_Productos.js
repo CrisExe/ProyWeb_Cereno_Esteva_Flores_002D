@@ -147,7 +147,7 @@ stars.forEach((star, index) => { // Agrega un event listener a cada estrella, st
 fullstars.forEach((fullstar, index) => { // Agrega un event listener a cada estrella llenada
     fullstar.addEventListener('click', () => { //al hacer el click hara lo de abajo
         // descolorea todas las estrellas hasta la despues de la clickeada
-        for(let i = index+1; i <= 4; i++) { //recorre las estrellas desde despues de la clickeada, termina hasta que termine todas las estrellas, el tamaño del arreglo es 5 pero empieza en 0, por eso determinamos hasta 4
+        for(let i = index+1; i < 5; i++) { //recorre las estrellas desde despues de la clickeada, termina hasta que termine todas las estrellas, el tamaño del arreglo es 5 pero empieza en 0, por eso determinamos hasta 4
             stars[i].style.display = "inline-block"; //muestra la estrella vacia
             fullstars[i].style.display = "none"; //oculta la estrella llena
         }
